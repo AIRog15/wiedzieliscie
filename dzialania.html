@@ -6,7 +6,50 @@
       .wf-force-outline-none[tabindex="-1"]:focus {
         outline: none;
       }
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  position: relative;
+  letter-spacing: 0.04em;
+}
+body {
+  font-family: "Signika Negative", sans-serif;
+  font-weight: 300;
+}
+.section {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  padding: 0;
+  text-align: center;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.bg1 {
+  background-color: #ccc;
+}
+.bg2 {
+  background-color: #333;
+}
+h1 {
+  font-size: 40px;
+  line-height: 1.2;
+  margin: 0;
+}
+.revealUp {
+  opacity: 0;
+  visibility: hidden;
+}
+.spacer {
+  height: 50vh;
+  background-color: #000;
+}
+
     </style>
+
     <title>Dzialania</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
@@ -107,7 +150,8 @@
         <div class="w-nav-overlay" data-wf-ignore="" id="w-nav-overlay-0"></div>
       </div>
     </div>
-    <section class="hero-heading-left wf-section">
+    <section>
+    <section class="section">
       <div class="container-2">
         <div class="hero-wrapper">
           <div class="hero-split">
@@ -132,11 +176,12 @@
         </div>
       </div>
     </section>
-    <section class="hero-heading-left wf-section">
-      <div class="container-2">
+    <section class="section bg1">
+      <div class="revealUp">      
+        <div class="container-2">
         <div class="hero-wrapper">
           <div class="hero-split">
-            <h1 class="dynamic">A wy?</h1>
+            <h1 class="dynamic">A wy - wiedzieliscie?</h1>
             <p class="margin-bottom-24px">
               wiedzieLIŚCIE?
             </p>
@@ -155,10 +200,12 @@
             />
           </div>
         </div>
-      </div>
+      </div></div>
+
     </section>
-    <section id="onas" class="sectiononas">
-      <div class="container-2">
+    <section id="onas" class="section bg2">
+      <div class="revealUp">      
+        <div class="container-2">
         <h2 class="centered-heading">O nas</h2>
         <div class="hexagon-gallery">
           <div class="hexagon">
@@ -174,7 +221,8 @@
               <div class="hex"><img id="img6" src="./photos/natalka.jpg" style="display: none"></div>
               <div class="hex"><img id="img7" src="./photos/karolina.jpg" style="display: none"></div>
           </div>
-        </div>
+        </div></div>
+
     </section>
     <section class="footer-subscribe wf-section">
       <div class="container-2">
@@ -290,8 +338,52 @@ document.addEventListener('scroll', function () {
 }, {
     passive: true
 });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 
-
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script>
+gsap.registerPlugin(ScrollTrigger);
+gsap.utils.toArray(".revealUp").forEach(function (elem) {
+  ScrollTrigger.create({
+    trigger: elem,
+    start: "top 80%",
+    end: "bottom 20%",
+    markers: true,
+    onEnter: function () {
+      gsap.fromTo(
+        elem,
+        { y: 100, autoAlpha: 0 },
+        {
+          duration: 1.25,
+          y: 0,
+          autoAlpha: 1,
+          ease: "back",
+          overwrite: "auto"
+        }
+      );
+    },
+    onLeave: function () {
+      gsap.fromTo(elem, { autoAlpha: 1 }, { autoAlpha: 0, overwrite: "auto" });
+    },
+    onEnterBack: function () {
+      gsap.fromTo(
+        elem,
+        { y: -100, autoAlpha: 0 },
+        {
+          duration: 1.25,
+          y: 0,
+          autoAlpha: 1,
+          ease: "back",
+          overwrite: "auto"
+        }
+      );
+    },
+    onLeaveBack: function () {
+      gsap.fromTo(elem, { autoAlpha: 1 }, { autoAlpha: 0, overwrite: "auto" });
+    }
+  });
+});
   </script>
   </body>
 </html>
