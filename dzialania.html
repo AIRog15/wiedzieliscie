@@ -132,12 +132,37 @@
         </div>
       </div>
     </section>
+    <section class="hero-heading-left wf-section">
+      <div class="container-2">
+        <div class="hero-wrapper">
+          <div class="hero-split">
+            <h1 class="dynamic">A wy?</h1>
+            <p class="margin-bottom-24px">
+              wiedzieLIŚCIE?
+            </p>
+            <!--<a
+              href="https://wiedzieliscie.pl/#"
+              class="button-primary-2 w-button"
+              >weź udział</a
+            >-->
+          </div>
+          <div class="hero-split">
+            <img
+              src="lisc.gif"
+              sizes="(max-width: 479px) 88vw, 300px"
+              alt=""
+              class="shadow-two"
+            />
+          </div>
+        </div>
+      </div>
+    </section>
     <section id="onas" class="sectiononas">
       <div class="container-2">
         <h2 class="centered-heading">O nas</h2>
         <div class="hexagon-gallery">
           <div class="hexagon">
-              <div class="hex"><img src="./photos/aniarog.jpg"></div>
+              <div class="hex"><img id="img1" src="./photos/aniarog.jpg" style="display: none"></div>
               <div class="hex"><img id="img2" src="./photos/olgagorna.jpg" style="display: none" width="200"></div>
           </div>
           <div class="hexagon">
@@ -228,7 +253,9 @@
     ></script>
         <!-- kod do ładowania zdjec  -->
     <script>
-        const obiekt = {
+
+const obiekt = {
+            0: 'img1',
             2000: 'img2',
             4000: 'img3',
             6000: 'img4',
@@ -236,12 +263,36 @@
             10000: 'img6',
             12000: 'img7',
 };
-        for (const klucz in obiekt) {
+
+function isInViewport(el) {
+    const rect = el.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+
+    );
+}
+
+const box = document.querySelector('.hexagon-gallery');
+
+document.addEventListener('scroll', function () {
+  if (isInViewport(box)) {
+    for (const klucz in obiekt) {
             setTimeout(function(){
           document.getElementById(obiekt[klucz]).style.display = "block";
         }, klucz);
     }
-      </script>
+  } else {
+    console.log('not yet')
+  }
+}, {
+    passive: true
+});
+
+
+  </script>
   </body>
 </html>
 
