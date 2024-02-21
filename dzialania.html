@@ -138,16 +138,16 @@
         <div class="hexagon-gallery">
           <div class="hexagon">
               <div class="hex"><img src="./photos/aniarog.jpg"></div>
-              <div class="hex"><img src="./photos/olgagorna.jpg" width="200"></div>
+              <div class="hex"><img id="img2" src="./photos/olgagorna.jpg" style="display: none" width="200"></div>
           </div>
           <div class="hexagon">
-              <div class="hex"><img src="./photos/olgapulka.jpg"></div>
-              <div class="hex"><img src="./photos/olgapulka.jpg"></div>
-              <div class="hex"><img src="./photos/nadia.jpg"></div>
+            <div class="hex"><img id="img3"src="./photos/olgapulka.jpg" style="display: none"></div>
+            <div class="hex"><img id="img4" src="./photos/olgapulka.jpg" style="display: none"></div>
+            <div class="hex"><img id="img5" src="./photos/nadia.jpg" style="display: none"></div>
           </div>
           <div class="hexagon">
-              <div class="hex"><img src="./photos/natalka.jpg"></div>
-              <div class="hex"><img src="./photos/karolina.jpg"></div>
+              <div class="hex"><img id="img6" src="./photos/natalka.jpg" style="display: none"></div>
+              <div class="hex"><img id="img7" src="./photos/karolina.jpg" style="display: none"></div>
           </div>
         </div>
     </section>
@@ -160,7 +160,7 @@
               class="footer-link-three w--current"
               >O nas</a
             ><a
-              href="https://wiedzieliscie.pl/dzialania"
+              href="https://wiedzieliscie.pl/dzialania.html"
               target="_blank"
               class="footer-link-three"
               >Działania</a
@@ -226,5 +226,22 @@
       src="./stronapliki/webflow.550fd263d.js"
       type="text/javascript"
     ></script>
+        <!-- kod do ładowania zdjec  -->
+    <script>
+        const obiekt = {
+            2000: 'img2',
+            4000: 'img3',
+            6000: 'img4',
+            8000: 'img5',
+            10000: 'img6',
+            12000: 'img7',
+};
+        for (const klucz in obiekt) {
+            setTimeout(function(){
+          document.getElementById(obiekt[klucz]).style.display = "block";
+        }, klucz);
+    }
+      </script>
   </body>
 </html>
+
