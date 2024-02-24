@@ -6,60 +6,70 @@
       .wf-force-outline-none[tabindex="-1"]:focus {
         outline: none;
       }
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  position: relative;
-  letter-spacing: 0.04em;
-}
-body {
-  font-family: "Signika Negative", sans-serif;
-  font-weight: 300;
-}
-.section {
-  height: 100vh;
-  width: 100%;
-  position: relative;
-  padding: 0;
-  text-align: center;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.bg1 {
-  background-color: #ccc;
-}
-.bg2 {
-  background-color: #333;
-}
-h1 {
-  font-size: 40px;
-  line-height: 1.2;
-  margin: 0;
-}
-.revealUp {
-  opacity: 0;
-  visibility: hidden;
-}
-.spacer {
-  height: 50vh;
-  background-color: #000;
-}
-
-.about {
-  display: none;
-}
-.about.show {
-  display: flex;
-  position: absolute;
-  left: 0;
-  top: 10%;
-  max-width: 200px;
-  padding: 20px;
-  background-color: white;
-}
+      *,
+      *:before,
+      *:after {
+        box-sizing: border-box;
+        position: relative;
+        letter-spacing: 0.04em;
+      }
+      body {
+        font-family: "Signika Negative", sans-serif;
+        font-weight: 300;
+      }
+      .section {
+        height: 100vh;
+        width: 100%;
+        position: relative;
+        padding: 0;
+        text-align: center;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .bg1 {
+        background-color: #ccc;
+      }
+      .bg2 {
+        background-color: #333;
+      }
+      h1 {
+        font-size: 40px;
+        line-height: 1.2;
+        margin: 0;
+      }
+      .revealUp {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .spacer {
+        height: 50vh;
+        background-color: #000;
+      }
+      .about {
+        display: none;
+      }
+      .about.show {
+        display: flex;
+        position: absolute;
+        left: 0;
+        top: 10%;
+        max-width: 200px;
+        padding: 20px;
+        background-color: white;
+      }
+      .fade-in-image { 
+        animation: fadeIn 5s; 
+      }
+      @keyframes fadeIn {
+        0% {
+           opacity: 0.3; 
+          }
+        100% { 
+            opacity: 1;
+          }
+        }
 
     </style>
 
@@ -224,17 +234,17 @@ h1 {
         <h2 class="centered-heading">O nas</h2>
         <div class="hexagon-gallery">
           <div class="hexagon">
-              <div class="hex"><img id="img1" src="./photos/aniarog.jpg" style="display: none" onclick="showMoreAboutMe()"></div>
-              <div class="hex"><img id="img2" src="./photos/olgagorna.jpg" style="display: none" width="200"></div>
+              <div class="hex"><img class="fade-in-image" id="img1" src="./photos/aniarog.jpg" style="display: none" onclick="showMoreAboutMe()"></div>
+              <div class="hex"><img class="fade-in-image" id="img2" src="./photos/olgagorna.jpg" style="display: none" width="200"></div>
           </div>
           <div class="hexagon">
-            <div class="hex"><img id="img3"src="./photos/olgapulka.jpg" style="display: none"></div>
-            <div class="hex"><img id="img4" src="./photos/olgapulka.jpg" style="display: none"></div>
-            <div class="hex"><img id="img5" src="./photos/nadia.jpg" style="display: none"></div>
+            <div class="hex"><img class="fade-in-image" id="img3"src="./photos/olgapulka.jpg" style="display: none"></div>
+            <div class="hex"><img class="fade-in-image" id="img4" src="./photos/olgapulka.jpg" style="display: none"></div>
+            <div class="hex"><img class="fade-in-image" id="img5" src="./photos/nadia.jpg" style="display: none"></div>
           </div>
           <div class="hexagon">
-              <div class="hex"><img id="img6" src="./photos/natalka.jpg" style="display: none"></div>
-              <div class="hex"><img id="img7" src="./photos/karolina.jpg" style="display: none"></div>
+              <div class="hex"><img class="fade-in-image" id="img6" src="./photos/natalka.jpg" style="display: none"></div>
+              <div class="hex"><img class="fade-in-image" id="img7" src="./photos/karolina.jpg" style="display: none"></div>
           </div>
         </div>
         <div class="about" id="moreAboutMe">Kilka zdań o mnie. Moje doświadczenia i zainteresowania.</div>
