@@ -344,6 +344,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
   background-clip: border-box;
   -webkit-text-fill-color: inherit;
   mix-blend-mode: normal;
+  text-decoration:none;
 }
 
 .button-primary-2:hover {
@@ -693,7 +694,6 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 
 .nav-button-wrapper-2 {
   margin-left: 120px;
-  text-decoration:none;
 }
 
 
