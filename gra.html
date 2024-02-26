@@ -71,73 +71,71 @@
           }
         }
         
-h1 {
-  font-size: 9vmin;
-  color: rgb(12, 69, 143);
-  text-align: left;
-  font-family: Lato, sans-serif;
-  font-weight: 700;
-  margin: 1rem 0 1rem 2rem;
-}
-
+      h1 {
+        font-size: 9vmin;
+        color: rgb(12, 69, 143);
+        text-align: left;
+        font-family: Lato, sans-serif;
+        font-weight: 700;
+        margin: 1rem 0 1rem 2rem;
+      }
 /* Typewriter effect 1 */
-@keyframes typing {
-  0.0000%, 28.9302% { content: "i"; }
-  2.1395%, 28.9302% { content: "ie"; }
-  4.2791%, 28.9302% { content: "ied"; }
-  6.4186%, 28.9302% { content: "iedz"; }
-  8.5581%, 26.7907% { content: "iedzc"; }
-  10.6977%, 24.6512% { content: "iedzcc"; }
-  12.8372%, 22.5116% { content: "iedzccx"; }
-  14.9767%, 20.3721% { content: "iedzccxz"; }
-  16.1163%, 18.2326% { content: "iedzccxzz"; }
+      @keyframes typing {
+        0.0000%, 28.9302% { content: "i"; }
+        2.1395%, 28.9302% { content: "ie"; }
+        4.2791%, 28.9302% { content: "ied"; }
+        6.4186%, 28.9302% { content: "iedz"; }
+        8.5581%, 26.7907% { content: "iedzc"; }
+        10.6977%, 24.6512% { content: "iedzcc"; }
+        12.8372%, 22.5116% { content: "iedzccx"; }
+        14.9767%, 20.3721% { content: "iedzccxz"; }
+        16.1163%, 18.2326% { content: "iedzccxzz"; }
 
-  29.0002%, 100%  { content: "iedz"; }
-  31.9070%, 100%  { content: "iedzi"; }
-  33.0465%, 100%  { content: "iedzie"; }
-  35.1860%, 100%  { content: "iedziel"; }
-  37.3256%, 100% { content: "iedzieli"; }
-  39.4651%, 100%  { content: "iedzieliś"; }
-  41.6047%, 100%  { content: "iedzieliśc"; }
-  43.6047%, 100% { content: "iedzieliści"; }
-  45.6047%, 100% { content: "iedzieliście ?"; }
-}
+        29.0002%, 100%  { content: "iedz"; }
+        31.9070%, 100%  { content: "iedzi"; }
+        33.0465%, 100%  { content: "iedzie"; }
+        35.1860%, 100%  { content: "iedziel"; }
+        37.3256%, 100% { content: "iedzieli"; }
+        39.4651%, 100%  { content: "iedzieliś"; }
+        41.6047%, 100%  { content: "iedzieliśc"; }
+        43.6047%, 100% { content: "iedzieliści"; }
+        45.6047%, 100% { content: "iedzieliście ?"; }
+      }
 
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
 
-.typewriter {
-  --caret: currentcolor;
-}
+      .typewriter {
+        --caret: currentcolor;
+      }
 
-.typewriter::before {
-  content: "";
-  animation: typing 16.5s infinite;
-}
+      .typewriter::before {
+        content: "";
+        animation: typing 16.5s infinite;
+      }
 
-.typewriter::after {
-  content: " |";
-  border-right: 1px solid var(--caret);
-  animation: blink 1s linear infinite;
-}
+      .typewriter::after {
+        content: " |";
+        border-right: 1px solid var(--caret);
+        animation: blink 1s linear infinite;
+      }
 
-.typewriter.thick::after {
-  border-right: 2ch solid var(--caret);
-}
+      .typewriter.thick::after {
+        border-right: 2ch solid var(--caret);
+      }
 
-.typewriter.nocaret::after {
-  border-right: 0;
-}
+      .typewriter.nocaret::after {
+        border-right: 0;
+      }
 
-
-@media (prefers-reduced-motion) {
-  .typewriter::after {
-    animation: none;
-  }
- 
-}
+      @media (prefers-reduced-motion) {
+        .typewriter::after {
+          animation: none;
+        }
+      
+      }
 
 /**/
 
@@ -275,8 +273,8 @@ h1 {
       <div class="revealUp">      
         <div class="container-2">
         <div class="hero-wrapper">
-          <div class="hero-split">
-            <h1 aria-label="Hi! I'm a developer">
+          <div class="typing-effect">
+            <h1 style="display: none;" id="effect">
               A Wy - w<span class="typewriter nocaret"></span>
             </h1>
             <!--<a
@@ -422,6 +420,18 @@ function isInViewport(el) {
 }
 
 const box = document.querySelector('.hexagon-gallery');
+
+const typing = document.querySelector('.typing-effect');
+
+document.addEventListener('scroll', function () {
+  if (isInViewport(typing)) {
+    document.getElementById('effect').style.display = "block";
+  } else {
+    console.log('not yet')
+  }
+}, {
+  
+})
 
 document.addEventListener('scroll', function () {
   if (isInViewport(box)) {
