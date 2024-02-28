@@ -1,0 +1,114 @@
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+</head>
+<body>
+    <em class="underlined-animated">
+        <div id="typedtext"></div>
+    </em>
+    <div class="buttons">
+        <button onclick="removeText(1)">Remove</button>
+        <button onclick="replaceText('Hello')">Replace</button>
+    </div>
+
+</body>
+</html>
+<script>
+    // set up text to print, each item in array is new line
+var aText = new Array(
+"wiedzieliscie"
+);
+var iSpeed = 100; // time delay of print out
+var iIndex = 0; // start printing array at this posision
+var iArrLength = aText[0].length; // the length of the text array
+var iScrollAt = 20; // start scrolling up at this many lines
+ 
+var iTextPos = 0; // initialise text position
+var sContents = ''; // initialise contents variable
+var iRow; // initialise current row
+ 
+function typewriter()
+{
+ sContents =  ' ';
+ iRow = Math.max(0, iIndex-iScrollAt);
+ var destination = document.getElementById("typedtext");
+ 
+ while ( iRow < iIndex ) {
+  sContents += aText[iRow++] + '<br />';
+ }
+ destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "|";
+ if ( iTextPos++ == iArrLength ) {
+  iTextPos = 0;
+  iIndex++;
+  if ( iIndex != aText.length ) {
+   iArrLength = aText[iIndex].length;
+   setTimeout("typewriter()", 500);
+  }
+ } else {
+  setTimeout("typewriter()", iSpeed);
+ }
+}
+function replaceText(newText) {
+  aText = [newText]; // replace the entire array with a new array containing the new text
+  iIndex = 0; // reset the array position
+  iArrLength = aText[0].length; // update the array length
+  iTextPos = 0; // reset the text position
+}
+function removeText(index) {
+  if (index < 0 || index >= aText.length) {
+    console.error('Index out of bounds');
+    return;
+  }
+  aText.splice(index, 1);
+  if (iIndex >= aText.length) {
+    iIndex = aText.length - 1;
+  }
+  if (iIndex < 0) {
+    iIndex = 0;
+  }
+  iArrLength = aText[iIndex].length;
+  iTextPos = 0;
+}
+typewriter();
+</script>
+<style>
+body {
+  font-family: 'Waiting for the Sunrise', cursive;
+  font-size:30px;
+  margin: 10px 50px;
+  letter-spacing: 6px;
+  font-weight: bold;
+}
+.buttons {
+    margin: 15px 0;
+}
+em::after {
+  content: "";
+  height: 25px;
+  display: inline-block;
+  position: absolute;
+  left: 50px;
+  background-image: url('./image2.PNG');
+  background-repeat: no-repeat;
+  background-size: cover;  
+  transition: all;
+}
+
+.underlined-animated::after {
+  animation: underline-animated 5s forwards; /* 1s - czas animacji */
+  animation-delay: 2s; /* 2s - opóźnienie animacji */
+}
+
+@keyframes underline-animated {
+  0% {
+    right: 100%;
+  }
+  100% {
+    right: 75%;
+    left: 50px;
+  }
+}
+
+</style>
