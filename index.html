@@ -9,11 +9,20 @@
       .about {
         display: none;
       }
-      .about.show {
+      .about.show-ania {
         display: flex;
         position: absolute;
-        left: 0;
-        top: 10%;
+        left: 20%;
+        top: 100%;
+        max-width: 200px;
+        padding: 20px;
+        background-color: white;
+      }
+      .about.show-ola {
+        display: flex;
+        position: absolute;
+        right: 20%;
+        top: 100%;
         max-width: 200px;
         padding: 20px;
         background-color: white;
@@ -168,8 +177,8 @@
         <h2 class="centered-heading">O nas</h2>
         <div class="hexagon-gallery">
           <div class="hexagon">
-              <div class="hex"><img class="fade-in-image" id="img1" src="./photos/aniarog.jpg" style="display: none" onclick="showMoreAboutMe()"></div>
-              <div class="hex"><img class="fade-in-image" id="img2" src="./photos/olgagorna.jpg" style="display: none" width="200"></div>
+              <div class="hex"><img class="fade-in-image" id="img1" src="./photos/aniarog.jpg" style="display: none" onclick="showMoreAboutAnia()"></div>
+              <div class="hex"><img class="fade-in-image" id="img2" src="./photos/olgagorna.jpg" style="display: none" width="200" onclick="showMoreAboutOla()"></div>
           </div>
           <div class="hexagon">
             <div class="hex"><img class="fade-in-image" id="img3"src="./photos/olgapulka.jpg" style="display: none"></div>
@@ -180,8 +189,10 @@
               <div class="hex"><img class="fade-in-image" id="img6" src="./photos/natalka.jpg" style="display: none"></div>
               <div class="hex"><img class="fade-in-image" id="img7" src="./photos/karolina.jpg" style="display: none"></div>
           </div>
-          <div class="about" id="moreAboutMe">Kilka zdań o mnie. Moje doświadczenia i zainteresowania.</div>
-                </div>
+        </div>
+        <div class="about" id="moreAnia">Kilka zdań o mnie. Moje doświadczenia i zainteresowania.</div>
+        <div class="about" id="moreOla">Kilka zdań o mnie. Moje doświadczenia i zainteresowania.</div>
+      </div>
     </section>
     <section class="footer-subscribe wf-section">
       <div class="container-2">
@@ -311,10 +322,15 @@
       type="text/javascript"
     ></script>
     <script>
-      function showMoreAboutMe() {
+      function showMoreAboutAnia() {
         const isClicked = false;
-        const element = document.getElementById("moreAboutMe");
-        element.classList.toggle("show");
+        const element = document.getElementById("moreAnia");
+        element.classList.toggle("show-ania");
+      }
+      function showMoreAboutOla() {
+        const isClicked = false;
+        const element = document.getElementById("moreOla");
+        element.classList.toggle("show-ola");
       }
     </script>
   </body>

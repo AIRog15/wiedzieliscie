@@ -717,7 +717,8 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
   height: 454px;
   display: grid;
   place-items: center;
-  margin-left: 25%;
+  margin-right: auto;
+  margin-left: auto;
 }
 .hexagon-gallery .hexagon{
   position: absolute ;
