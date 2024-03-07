@@ -168,23 +168,47 @@ h1 {
     <section class="section">
       <div id="container">
         <div id="inner_container">
+          <div id="left_button" class="overlay_button" onclick="onLeftButton()"></div>
+          <div id="right_button" class="overlay_button" onclick="onRightButton()"></div>
             <div id="imgs_container">
                 <div class="img_container">
-                    <img src="https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+                    <img src="https://images.pexels.com/photos/326055/pexels-photo-326055.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" onclick="openFirstModal()" >
                 </div>
                 <div class="img_container">
-                    <img src="https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+                    <img src="https://images.pexels.com/photos/572897/pexels-photo-572897.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"  onclick="openSecondModal()" >
                 </div>
                 <div class="img_container">
-                    <img src="https://images.pexels.com/photos/5366526/pexels-photo-5366526.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260">
+                    <img src="https://images.pexels.com/photos/5366526/pexels-photo-5366526.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" onclick="openThirdModal()" >
                 </div>
-            </div>
-            <div id="overlay">
-                <div id="left_button" class="overlay_button" onclick="onLeftButton()"></div>
-                <div id="right_button" class="overlay_button" onclick="onRightButton()"></div>
             </div>
         </div>
+        <!-- first Modal -->
+      <div id="modalFirst" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <button class="close" onclick="closeModal()">x</button>
+          <p>Warsztaty w dniu 24.02, przeprowadzone w szkole podstawowej.</p>
+        </div>
+      </div>
+        <!-- second Modal -->
+      <div id="modalSecond" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <button class="close" onclick="closeModal()">x</button>
+          <p>Warsztaty w dniu 03.03, przeprowadzone w liceum.</p>
+        </div>
+      </div>
+        <!-- third Modal -->
+      <div id="modalThird" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <button class="close" onclick="closeModal()">x</button>
+          <p>Warsztaty w dniu 05.03, przeprowadzone na Polu Mokotowskim.</p>
+        </div>
+      </div>
     </div>
+    <script>
+    </script>
     <script>
     let container=document.getElementById("container");
           let imgs_containers=document.getElementsByClassName("img_container");
@@ -250,6 +274,40 @@ h1 {
           }
           setup();
           setInterval(autoScroll,autoScroll_interval);
+          
+    </script>
+    <script>
+      // Get the <span> element that closes the modal
+        const modal1 = document.getElementById('modalFirst');
+        const modal2 = document.getElementById('modalSecond');
+        const modal3 = document.getElementById('modalThird');
+
+      function openFirstModal() {
+        modal1.style.display = "block";
+      }
+
+      function openSecondModal() {
+        modal2.style.display = "block";
+      }
+
+      function openThirdModal() {
+        modal3.style.display = "block";
+      }
+
+      function closeModal() {
+        modal1.style.display = "none";
+        modal2.style.display = "none";
+        modal3.style.display = "none";
+      }
+
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+          if (event.target == modal1 || event.target == modal2) {
+              modal1.style.display = "none";
+              modal2.style.display = "none";
+              modal3.style.display = "none";
+          }
+      }
     </script>
     <style>
           *{margin:0;padding:0;box-sizing:border-box;}
@@ -284,14 +342,14 @@ h1 {
               height:100%;
               object-fit:scale-down;
           }
-          #overlay{
+          /* #overlay{
               position:absolute;
               left:0;
               right:0;
               top:0;
               bottom:0;
               background-color:rgba(200,200,200,0.2);
-          }
+          } */
           .overlay_button{
               display:flex;
               align-items:center;
@@ -307,10 +365,50 @@ h1 {
               top:40%;
           }
           #left_button{
+            z-index: 999;
               left:4.5%;
           }
           #right_button{
+            z-index: 999;
               right:4.5%;
+          }
+          /* The Modal (background) */
+          .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              padding-top: 100px; /* Location of the box */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+          }
+          /* Modal Content */
+          .modal-content {
+              background-color: #fefefe;
+              margin: auto;
+              padding: 20px;
+              border: 1px solid #888;
+              width: 60%;
+              min-height: 200px;
+          }
+          /* The Close Button */
+          .close {
+              color: #000000;
+              background-color: #ffffff;
+              float: right;
+              font-size: 28px;
+              font-weight: bold;
+              cursor: pointer;
+          }
+          .close:hover,
+          .close:focus {
+              color: #000;
+              text-decoration: none;
+              cursor: pointer;
           }
     </style>
     </section>
