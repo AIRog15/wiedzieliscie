@@ -254,8 +254,7 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
 .container-2 {
   width: 100%;
   max-width: 940px;
-  margin-right: auto;
-  margin-left: auto;
+  margin:30px auto;
   padding-top: 0px;
 }
 .sectiononas{
