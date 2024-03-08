@@ -222,28 +222,27 @@ h1 {
               }
           }
     
-          function onLeftButton(){
-              if(current_img_index>0){
-                  let container_width=container.clientWidth;
-                  current_img_index--;
-                  for(let i=0;i<imgs_count;i++){
-                      let element=imgs_containers[i];
-                      let new_left_pos=container_width*(i-current_img_index);
-                      element.style.left=new_left_pos+"px";
-                  }
-              } 
-          }
-          function onRightButton(){
-              if(current_img_index<imgs_count-1){
-                  let container_width=container.clientWidth;
-                  current_img_index++;
-                  for(let i=0;i<imgs_count;i++){
-                      let element=imgs_containers[i];
-                      let new_left_pos=-container_width*(current_img_index-i);
-                      element.style.left=new_left_pos+"px";
-                  }
-              }
-          }
+          function onLeftButton() {
+    let container_width = container.clientWidth;
+    current_img_index = (current_img_index - 1 + imgs_count) % imgs_count;
+
+    for (let i = 0; i < imgs_count; i++) {
+        let element = imgs_containers[i];
+        let new_left_pos = container_width * (i - current_img_index);
+        element.style.left = new_left_pos + "px";
+    }
+}
+
+function onRightButton() {
+    let container_width = container.clientWidth;
+    current_img_index = (current_img_index + 1) % imgs_count;
+
+    for (let i = 0; i < imgs_count; i++) {
+        let element = imgs_containers[i];
+        let new_left_pos = -container_width * (current_img_index - i);
+        element.style.left = new_left_pos + "px";
+    }
+}
     
           function autoScroll(){
               if(!autoScroll_enabled)return;
@@ -389,7 +388,7 @@ h1 {
             border: none;
             width: 50%;
             min-height: max-content;
-            font-weight: bold;
+            font-weight: normal;
             line-height: 24px;
           }
           /* The Close Button */

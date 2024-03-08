@@ -4,36 +4,19 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
       em {
-        font-size:30px;
+        font-size:40px;
         margin: 10px 0;
         letter-spacing: 3px;
         font-weight: bold;
       }
-      em::after {
-        content: "";
-        height: 20px;
-        display: inline-block;
-        position: absolute;
-        left: 30px;
-        background-image: url('./img2.png');
-        background-repeat: no-repeat;
-        background-size: cover;  
-        transition: all;
-      }
-      .underlined-animated::after {
-        animation: underline-animated 4s forwards; /* 1s - czas animacji */
-      }
-      @keyframes underline-animated {
-        0% {
-          right: 100%;
-        }
-        100% {
-          right: 75%;
-          left: 50px;
-        }
-      }
       .wf-force-outline-none[tabindex="-1"]:focus {
         outline: none;
+      }
+      .hero-split {
+        margin-left:50px;
+      }
+      .dynamic {
+        font-size: 3em;
       }
       .about {
         display: none;
@@ -55,18 +38,17 @@
         top: 120%;
 
       }
-      .about.show-nadia {
+      .about.show-natalia {
         display: flex;
         left: 10%;
         top: 150%;
-
       }
       .about.show-ola {
         display: flex;
         right: 10%;
         top: 100%;
       }
-      .about.show-natalia {
+      .about.show-nadia {
         display: flex;
         right: 10%;
         top: 120%;
@@ -312,7 +294,7 @@
     <script>
       // text wiedzieliscie
   var aText = new Array(
-  "wiedzieliscie? "
+  "wiedzieliście? "
   );
   var iSpeed = 100; // time delay of print out
   var iIndex = 0; // start printing array at this posision
