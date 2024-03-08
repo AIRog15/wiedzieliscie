@@ -26,12 +26,36 @@
         padding: 20px;
         background-color: white;
       }
-      .about.show-ania {
-        display: flex;
-        left: 10%;
-        top: 100%;
-
-      }
+      .modal {
+              display: none; /* Hidden by default */
+              position: fixed; /* Stay in place */
+              z-index: 1; /* Sit on top */
+              padding-top: 100px; /* Location of the box */
+              left: 0;
+              top: 0;
+              width: 100%; /* Full width */
+              height: 100%; /* Full height */
+              overflow: auto; /* Enable scroll if needed */
+              background-color: rgb(0,0,0); /* Fallback color */
+              background-color: rgba(255, 255, 255, 0.4); /* Black w/ opacity */
+          }
+          /* Modal Content */
+          .modal-content {
+            background-color: #d7d7d7;
+            margin: 15% auto 0 auto;
+            padding: 30px;
+            border: none;
+            width: 40%;
+            min-height: max-content;
+            font-weight: normal;
+            line-height: 24px;
+          }
+          .close-button {
+            background-color: transparent;
+            border: none;
+            font-weight: bold;
+            font-size:1em;
+          }
       .about.show-olga {
         display: flex;
         left: 10%;
@@ -218,8 +242,15 @@
               <div class="hex"><img class="fade-in-image" id="img7" src="./photos/karolina.jpg" style="display: none" onclick="showMoreAboutKarolina()"></div>
           </div>
         </div>
-        <div class="about" id="moreAnia">Jestem Ania aka rogalik. Chodzę na mat-inf w Staszicu w Warszawie. W projekcie głównie zajmuję się robieniem strony internetowej. Bardzo lubię zwierzęta, szczególnie psy, ich empatie i energie - potrafi to napędzić człowieka do działania . W wolnym czasie gram na gitarze, tańczę i czytam książki.</div>
-        <div class="about" id="moreOla">Miłośniczka podróżowania i popularyzatorka nauki. Kocham patrzeć w gwiazdy oraz angażować się w różne projekty, a w wolnym czasie czytam książki, nurkuję lub gram w planszówki. Jestem w 1 klasie liceum z rozszerzoną matematyką i fizyką.</div>
+        <!-- first Modal -->
+        <div id="moreAnia" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content" >
+            <div style="text-align: right;"><button onclick="closeModal()" class="close-button">x</button></div>
+            <p>Jestem Ania aka rogalik. Chodzę na mat-inf w Staszicu w Warszawie. W projekcie głównie zajmuję się robieniem strony internetowej. Bardzo lubię zwierzęta, szczególnie psy, ich empatie i energie - potrafi to napędzić człowieka do działania . W wolnym czasie gram na gitarze, tańczę i czytam książki.</p>
+          </div>
+        </div>       
+         <div class="about" id="moreOla">Miłośniczka podróżowania i popularyzatorka nauki. Kocham patrzeć w gwiazdy oraz angażować się w różne projekty, a w wolnym czasie czytam książki, nurkuję lub gram w planszówki. Jestem w 1 klasie liceum z rozszerzoną matematyką i fizyką.</div>
         <div class="about" id="moreOlga">Uwielbiam naturę, podróże, zwierzęta i chcę pomagać światu. Jestem w 1 klasie liceum na profilu biologiczno - chemicznym. Interesuję się biologią, szczególnie morską. Lubię pływać, grać w golfa, czytać książki fantastyczne i słuchać muzyki.</div>
         <div class="about" id="moreNadia">Jestem Nadia, mam 15 lat i chodzę do 1 klasy LO na profil biologiczno-chemiczny. Uwielbiam w wolnym czasie czytać książki, słuchać muzyki oraz chodzić na długie spacery. Moimi pasjami jest żeglarstwo oraz łyżwiarstwo figurowe. Kocham otaczającą nas naturę i chcę pomagać w jej ochronie! </div>
         <div class="about" id="moreNatalia">Kim jestem? Głównie to człowiekiem, homo sapiens- miło mi poznać. Na codzień chodzę do liceum, a "po godzinach" zajmuję się pracą w fundacjach i rozwijaniem projektów takich jak ten. Mówiąc o work-life balansie, w wolnym czasie, uwielbiam siedzieć na ławce w parku, czy to karmiąc gołębie, bądź czytając książki. Oprócz literatury i natury, mam smykałkę do sztuki. Nie ważne w jakiej formie - na tablecie graficznym, w drewnie, a może z gliny? To jest świat, w którym spędzam chwile pełne inspiracji.</div>
@@ -305,27 +336,32 @@
   var sContents = ''; // initialise contents variable
   var iRow; // initialise current row
    
-  function typewriter()
-  {
-   sContents =  ' ';
-   iRow = Math.max(0, iIndex-iScrollAt);
-   var destination = document.getElementById("typedtext");
-   
-   while ( iRow < iIndex ) {
+  function typewriter() {
+  sContents = ' ';
+  iRow = Math.max(0, iIndex - iScrollAt);
+  var destination = document.getElementById("typedtext");
+
+  while (iRow < iIndex) {
     sContents += aText[iRow++] + '<br />';
-   }
-   destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "|";
-   if ( iTextPos++ == iArrLength ) {
+  }
+
+  if (iIndex === aText.length) {
+    destination.innerHTML = sContents; // No "|" after the last line
+  } else {
+    destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + " /";
+  }
+
+  if (iTextPos++ == iArrLength) {
     iTextPos = 0;
     iIndex++;
-    if ( iIndex != aText.length ) {
-     iArrLength = aText[iIndex].length;
-     setTimeout("typewriter()", 500);
+    if (iIndex != aText.length) {
+      iArrLength = aText[iIndex].length;
+      setTimeout(typewriter, 500);
     }
-   } else {
-    setTimeout("typewriter()", iSpeed);
-   }
+  } else {
+    setTimeout(typewriter, iSpeed);
   }
+}
   function replaceText(newText) {
     aText = [newText]; // replace the entire array with a new array containing the new text
     iIndex = 0; // reset the array position
@@ -412,11 +448,33 @@
       type="text/javascript"
     ></script>
     <script>
+      const modal1 = document.getElementById('moreAnia');
+      
       function showMoreAboutAnia() {
-        const isClicked = false;
-        const element = document.getElementById("moreAnia");
-        element.classList.toggle("show-ania");
+        modal1.style.display = "block";
       }
+      function closeModal() {
+        modal1.style.display = "none";
+        modal2.style.display = "none";
+        modal3.style.display = "none";
+        modal4.style.display = "none";
+        modal5.style.display = "none";
+        modal6.style.display = "none";
+        modal7.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+          if (event.target == modal1 || event.target == modal2 || event.target == modal3 || event.target == modal4 || event.target == modal5 || event.target == modal6 || event.target == modal7) {
+              modal1.style.display = "none";
+          }
+      }
+
+
+      // function showMoreAboutAnia() {
+      //   const isClicked = false;
+      //   const element = document.getElementById("moreAnia");
+      //   element.classList.toggle("show-ania");
+      // }
       function showMoreAboutOla() {
         const isClicked = false;
         const element = document.getElementById("moreOla");
