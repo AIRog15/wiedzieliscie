@@ -379,31 +379,36 @@ h1 {
               height: 100%; /* Full height */
               overflow: auto; /* Enable scroll if needed */
               background-color: rgb(0,0,0); /* Fallback color */
-              background-color: rgba(0,0,0,0.5); /* Black w/ opacity */
+              background-color: rgba(255, 255, 255, 0.4); /* Black w/ opacity */
           }
           /* Modal Content */
           .modal-content {
-              background-color: #fefefe;
-              margin: auto;
+              background-color: transparent;
+              margin: 15% auto 0 auto;
               padding: 20px;
-              border: 1px solid #888;
+              border: none;
               width: 60%;
               min-height: 200px;
+              font-weight: bold;
           }
           /* The Close Button */
           .close {
               color: #000000;
-              background-color: #ffffff;
+              background-color: transparent;
               float: right;
               font-size: 28px;
               font-weight: bold;
               cursor: pointer;
+              border: none;
           }
           .close:hover,
           .close:focus {
               color: #000;
               text-decoration: none;
               cursor: pointer;
+              transform: scale(1.2);
+            -webkit-transform: scale(1.2);
+            -moz-transform: scale(1.2);
           }
     </style>
     </section>
