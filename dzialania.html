@@ -297,7 +297,7 @@ h1 {
 
       // When the user clicks anywhere outside of the modal, close it
       window.onclick = function(event) {
-          if (event.target == modal1 || event.target == modal2) {
+          if (event.target == modal1 || event.target == modal2 || event.target == modal3) {
               modal1.style.display = "none";
               modal2.style.display = "none";
               modal3.style.display = "none";
@@ -311,7 +311,7 @@ h1 {
               position: relative;
               width:100%;
               padding-top:50%;
-              max-height:100vh;
+              max-height: 100vh;
               overflow:hidden;
           }
           #inner_container{
@@ -383,13 +383,14 @@ h1 {
           }
           /* Modal Content */
           .modal-content {
-              background-color: transparent;
-              margin: 15% auto 0 auto;
-              padding: 20px;
-              border: none;
-              width: 60%;
-              min-height: 200px;
-              font-weight: bold;
+            background-color: #d7d7d7;
+            margin: 15% auto 0 auto;
+            padding: 30px;
+            border: none;
+            width: 50%;
+            min-height: max-content;
+            font-weight: bold;
+            line-height: 24px;
           }
           /* The Close Button */
           .close {
