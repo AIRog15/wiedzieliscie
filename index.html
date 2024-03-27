@@ -68,7 +68,7 @@ body {
             font-weight: bold;
             font-size:1em;
           }
-      .about.show-olga {
+      /*.about.show-olga {
         display: flex;
         left: 10%;
         top: 120%;
@@ -93,20 +93,20 @@ body {
         display: flex;
         right: 10%;
         top: 150%;
-      }
+      }*/
       .fade-in-image { 
-        animation: fadeIn 5s; 
+        animation: fadeIn 0.3s; 
       }
       @keyframes fadeIn {
         0% {
-           opacity: 0.3; 
+           opacity: 0.2; 
           }
         100% { 
             opacity: 1;
           }
         }
     </style>
-    <title>uwu</title>
+    <title>Wiedzieliście</title>
     <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta content="Webflow" name="generator" />
     <link
@@ -243,11 +243,11 @@ body {
         <div class="hexagon-gallery">
           <div class="hexagon">
               <div class="hex"><img class="fade-in-image" id="img1" src="./photos/aniarog.jpg" style="display: none" onclick="showMoreAboutAnia()"></div>
-              <div class="hex"><img class="fade-in-image" id="img2" src="./photos/olgagorna.jpg" style="display: none" width="200" onclick="showMoreAboutOla()"></div>
+              <div class="hex"><img class="fade-in-image" id="img2" src="./photos/olgagorna.jpg" style="display: none" width="200" onclick="showMoreAboutOlga1()"></div>
           </div>
           <div class="hexagon">
             <div class="hex"><img class="fade-in-image" id="img3"src="./photos/olgapulka.jpg" style="display: none" onclick="showMoreAboutOlga()"></div>
-            <div class="hex"><img class="fade-in-image" id="img4" src="./photos/olgapulka.jpg" style="display: none"></div>
+            <div class="hex"><img class="fade-in-image" id="img4" src="./photos/janisz.jfif" style="display: none"></div>
             <div class="hex"><img class="fade-in-image" id="img5" src="./photos/nadia.jpg" style="display: none" onclick="showMoreAboutNadia()"></div>
           </div>
           <div class="hexagon">
@@ -262,12 +262,45 @@ body {
             <div style="text-align: right;"><button onclick="closeModal()" class="close-button">x</button></div>
             <p>Jestem Ania aka rogalik. Chodzę na mat-inf w Staszicu w Warszawie. W projekcie głównie zajmuję się robieniem strony internetowej. Bardzo lubię zwierzęta, szczególnie psy, ich empatie i energie - potrafi to napędzić człowieka do działania . W wolnym czasie gram na gitarze, tańczę i czytam książki.</p>
           </div>
-        </div>       
-         <div class="about" id="moreOla">Miłośniczka podróżowania i popularyzatorka nauki. Kocham patrzeć w gwiazdy oraz angażować się w różne projekty, a w wolnym czasie czytam książki, nurkuję lub gram w planszówki. Jestem w 1 klasie liceum z rozszerzoną matematyką i fizyką.</div>
-        <div class="about" id="moreOlga">Uwielbiam naturę, podróże, zwierzęta i chcę pomagać światu. Jestem w 1 klasie liceum na profilu biologiczno - chemicznym. Interesuję się biologią, szczególnie morską. Lubię pływać, grać w golfa, czytać książki fantastyczne i słuchać muzyki.</div>
-        <div class="about" id="moreNadia">Jestem Nadia, mam 15 lat i chodzę do 1 klasy LO na profil biologiczno-chemiczny. Uwielbiam w wolnym czasie czytać książki, słuchać muzyki oraz chodzić na długie spacery. Moimi pasjami jest żeglarstwo oraz łyżwiarstwo figurowe. Kocham otaczającą nas naturę i chcę pomagać w jej ochronie! </div>
-        <div class="about" id="moreNatalia">Kim jestem? Głównie to człowiekiem, homo sapiens- miło mi poznać. Na codzień chodzę do liceum, a "po godzinach" zajmuję się pracą w fundacjach i rozwijaniem projektów takich jak ten. Mówiąc o work-life balansie, w wolnym czasie, uwielbiam siedzieć na ławce w parku, czy to karmiąc gołębie, bądź czytając książki. Oprócz literatury i natury, mam smykałkę do sztuki. Nie ważne w jakiej formie - na tablecie graficznym, w drewnie, a może z gliny? To jest świat, w którym spędzam chwile pełne inspiracji.</div>
-        <div class="about" id="moreKarolina">Jestem chaotyczną i ciekawą świata nastolatką z pasją do gotowania. Kocham spacerować, oglądać gwiazdy, fotografować wszystko co nas otacza i słuchać muzyki. Mam 15 lat i jestem uczennicą 1 klasy liceum ogólnokształcącego z rozszerzoną biologią oraz chemią.</div>
+        </div>
+        <div id="moreOlga1" class="modal">
+          <div class="modal-content">
+            <div style="text-align: right;"><button onclick="closeModal()" class="close-button">x</button></div>
+              <p>Miłośniczka podróżowania i popularyzatorka nauki. Kocham patrzeć w gwiazdy oraz angażować się w różne projekty, a w wolnym czasie czytam książki, nurkuję lub gram w planszówki. Jestem w 1 klasie liceum z rozszerzoną matematyką i fizyką.</p>
+          </div>
+        </div>
+        <div id="moreOlga" class="modal">
+          <div class="modal-content">
+            <div style="text-align: right;"><button onclick="closeModal()" class="close-button">x</button></div>
+              <p>Uwielbiam naturę, podróże, zwierzęta i chcę pomagać światu. Jestem w 1 klasie liceum na profilu biologiczno - chemicznym. Interesuję się biologią, szczególnie morską. Lubię pływać, grać w golfa, czytać książki fantastyczne i słuchać muzyki.</p>
+          </div>
+        </div>
+        <div id="moreOlga" class="modal">
+          <div class="modal-content">
+            <div style="text-align: right;"><button onclick="closeModal()" class="close-button">x</button></div>
+              <p></p>
+          </div>
+
+        </div>
+        <div id="moreNadia" class="modal">
+          <div class="modal-content">
+            <div style="text-align: right;"><button onclick="closeModal()" class="close-button">x</button></div>
+              <p>Jestem Nadia, mam 15 lat i chodzę do 1 klasy LO na profil biologiczno-chemiczny. Uwielbiam w wolnym czasie czytać książki, słuchać muzyki oraz chodzić na długie spacery. Moimi pasjami jest żeglarstwo oraz łyżwiarstwo figurowe. Kocham otaczającą nas naturę i chcę pomagać w jej ochronie!</p>
+          </div>
+        </div>
+        <div id="moreNatalia" class="modal">
+          <div class="modal-content">
+            <div style="text-align: right;"><button onclick="closeModal()" class="close-button">x</button></div>
+              <p>Kim jestem? Głównie to człowiekiem, homo sapiens- miło mi poznać. Na codzień chodzę do liceum, a "po godzinach" zajmuję się pracą w fundacjach i rozwijaniem projektów takich jak ten. Mówiąc o work-life balansie, w wolnym czasie, uwielbiam siedzieć na ławce w parku, czy to karmiąc gołębie, bądź czytając książki. Oprócz literatury i natury, mam smykałkę do sztuki. Nie ważne w jakiej formie - na tablecie graficznym, w drewnie, a może z gliny? To jest świat, w którym spędzam chwile pełne inspiracji.</p>
+          </div>
+        </div>
+        <div id="moreKarolina" class="modal">
+          <div class="modal-content">
+            <div style="text-align: right;"><button onclick="closeModal()" class="close-button">x</button></div>
+              <p>Jestem chaotyczną i ciekawą świata nastolatką z pasją do gotowania. Kocham spacerować, oglądać gwiazdy, fotografować wszystko co nas otacza  i słuchać muzyki. Mam 15 lat i jestem uczennicą 1 klasy liceum ogólnokształcącego z rozszerzoną biologią oraz chemią.</p>
+          </div>
+        </div>
+        
       </div>
     </section>
     <section class="footer-subscribe wf-section">
@@ -275,19 +308,18 @@ body {
         <div class="footer-wrapper-three">
           <div class="footer-block-three">
             <a
-              href="https://wiedzieliscie.pl/#onas"
+              href="index.html"
               class="footer-link-three w--current"
               >O nas</a
             ><a
-              href="https://wiedzieliscie.pl/dzialania"
+              href="dzialania.html"
               target="_blank"
               class="footer-link-three"
               >Działania</a
-            ><a href="https://wiedzieliscie.pl/#" class="footer-link-three"
-              >Blog</a
-            ><a href="https://wiedzieliscie.pl/#" class="footer-link-three"
+            ><a
+             href="https://wiedzieliscie.pl/#" class="footer-link-three"
               >Gra terenowa</a
-            ><a href="https://wiedzieliscie.pl/#" class="footer-link-three"
+            ><a href="kontakt.html" class="footer-link-three"
               >Kontakt</a
             >
           </div>
@@ -300,7 +332,7 @@ body {
                 loading="lazy"
                 alt="" /></a
             ><a
-              href="https://wiedzieliscie.pl/#"
+              href="https://www.tiktok.com/@wiedzieliscie"
               class="footer-social-link-three w-inline-block"
               ><img
                 src="./stronapliki/63f4fae06e31186ac8e52a65_tiktok-logo-4501.svg"
@@ -308,14 +340,14 @@ body {
                 width="22"
                 alt="" /></a
             ><a
-              href="https://wiedzieliscie.pl/#"
+              href="https://www.instagram.com/wiedzieliscie/"
               class="footer-social-link-three w-inline-block"
               ><img
                 src="./stronapliki/62434fa732124a61f512aaed_instagram big.svg"
                 loading="lazy"
                 alt="" /></a
             ><a
-              href="https://wiedzieliscie.pl/#"
+              href="https://www.youtube.com/channel/UCkCPDMD4tExSGsKxdw5EpZg"
               class="footer-social-link-three w-inline-block"
               ><img
                 src="./stronapliki/62434fa732124a717f12aaea_youtube small.svg"
@@ -361,7 +393,7 @@ body {
   if (iIndex === aText.length) {
     destination.innerHTML = sContents; // No "|" after the last line
   } else {
-    destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + " /";
+    destination.innerHTML = sContents + aText[iIndex].substring(0, iTextPos) + "|";
   }
 
   if (iTextPos++ == iArrLength) {
@@ -408,13 +440,13 @@ body {
         <script>
 
           const obiekt = {
-                      0: 'img1',
-                      2000: 'img2',
-                      4000: 'img3',
-                      6000: 'img4',
-                      8000: 'img5',
-                      10000: 'img6',
-                      12000: 'img7',
+                      0:   'img1',
+                      600: 'img2',
+                      200: 'img3',
+                      300: 'img4',
+                      400: 'img5',
+                      500: 'img6',
+                      100: 'img7',
           };
           
           function isInViewport(el) {
@@ -462,15 +494,35 @@ body {
     ></script>
     <script>
       const modal1 = document.getElementById('moreAnia');
-      
+      const modal2 = document.getElementById('moreOlga1');
+      const modal3 = document.getElementById('moreOlga');
+      const modal4 = document.getElementById('moreOla');
+      const modal5 = document.getElementById('moreNadia');
+      const modal6 = document.getElementById('moreNatalia');
+      const modal7 = document.getElementById('moreKarolina');
+
       function showMoreAboutAnia() {
         modal1.style.display = "block";
+      }
+      function showMoreAboutOlga1() {
+        modal2.style.display = "block";
+      }
+      function showMoreAboutOlga() {
+        modal3.style.display = "block";
+      }
+      function showMoreAboutNadia() {
+        modal5.style.display = "block";
+      }
+      function showMoreAboutNatalia() {
+        modal6.style.display = "block";
+      }
+      function showMoreAboutKarolina() {
+        modal7.style.display = "block";
       }
       function closeModal() {
         modal1.style.display = "none";
         modal2.style.display = "none";
         modal3.style.display = "none";
-        modal4.style.display = "none";
         modal5.style.display = "none";
         modal6.style.display = "none";
         modal7.style.display = "none";
@@ -479,18 +531,25 @@ body {
       window.onclick = function(event) {
           if (event.target == modal1 || event.target == modal2 || event.target == modal3 || event.target == modal4 || event.target == modal5 || event.target == modal6 || event.target == modal7) {
               modal1.style.display = "none";
+              modal2.style.display = "none";
+              modal3.style.display = "none";
+              modal5.style.display = "none";
+              modal6.style.display = "none";
+              modal7.style.display = "none";
           }
       }
+      
 
 
-      // function showMoreAboutAnia() {
-      //   const isClicked = false;
-      //   const element = document.getElementById("moreAnia");
-      //   element.classList.toggle("show-ania");
-      // }
-      function showMoreAboutOla() {
+
+      //function showMoreAboutAnia() {
+        // const isClicked = false;
+         //const element = document.getElementById("moreAnia");
+         //element.classList.toggle("show-ania");
+      //}
+      /*function showMoreAboutOlga() {
         const isClicked = false;
-        const element = document.getElementById("moreOla");
+        const element = document.getElementById("moreOlga");
         element.classList.toggle("show-ola");
       }
       function showMoreAboutOlga() {
@@ -512,7 +571,7 @@ body {
         const isClicked = false;
         const element = document.getElementById("moreKarolina");
         element.classList.toggle("show-karolina");
-      }
+      }*/
     </script>
   </body>
 </html>
