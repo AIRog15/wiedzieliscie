@@ -9,6 +9,9 @@ html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:1
   padding: 0px 0px 20px 20px;
   background-color: transparent;
 }
+.pom{
+  height: 30px;
+}
 
 .container-regular {
   width: 100%;
